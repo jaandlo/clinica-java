@@ -16,4 +16,5 @@ public class Veterinario extends Persona {
     public String getEspecialidad() {
         return especialidad;
     }
+    
 }

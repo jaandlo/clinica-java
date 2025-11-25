@@ -1,8 +1,6 @@
-package com.clinicavet.clinica.legacy.Clinica_Veterinaria;
-
 public class Servicio {
     public enum Tipo {
-        VACUNACION, CONTROL, URGENCIA, OTRO
+        GENERAL, VACUNACION, CONTROL, URGENCIA, OTRO
     }
 
     private String id;
@@ -42,10 +40,13 @@ public class Servicio {
     public Tipo getTipo() {
         return tipo;
     }
-
-    public Veterinario getResponsable() {
-        return responsable;
+    
+    public void serviciosDisponibles() {
+        for (Tipo t : Tipo.values()) {
+            System.out.println("- " + t);
+        }
     }
+
 
     @Override
     public String toString() {

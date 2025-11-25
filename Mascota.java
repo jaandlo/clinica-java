@@ -1,14 +1,14 @@
 public class Mascota {
     final private String nombre;
+    final private String especie;
     final private String raza;
     final private int edad;
-    private String historialMedico;
 
-    public Mascota(String nombre, String raza, int edad) {
+    public Mascota(String nombre, String especie ,String raza, int edad) {
         this.nombre = nombre;
+        this.especie = especie;
         this.raza = raza;
         this.edad = edad;
-        this.historialMedico = "";
     }
 
     public String getNombre() {
@@ -23,12 +23,8 @@ public class Mascota {
         return edad;
     }
 
-    public String getHistorialMedico() {
-        return historialMedico;
-    }
-
-    public void agregarHistorialMedico(String entrada) {
-        this.historialMedico += entrada + "\n";
+    public String getEspecie() {
+        return especie;
     }
 
     @Override
@@ -36,13 +32,14 @@ public class Mascota {
         return """
                 Información de la Mascota:
                     Nombre          : %s
+                    especie         : %s
                     Raza            : %s
                     Edad            : %d años
-                    Historial Médico:
                 """. formatted(
                 getNombre(),
+                getEspecie(),
                 getRaza(),
-                getEdad()) + getHistorialMedico();
+                getEdad());
 
     }
 }
