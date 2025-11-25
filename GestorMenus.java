@@ -18,17 +18,17 @@ public class GestorMenus {
 
         Cliente cliente = obtenerDatosCliente();
         clinica.registrarCliente(cliente);
-        System.out.println("\n✓ " + cliente);
+        System.out.println("\n -" + cliente);
 
         Mascota mascota = obtenerDatosMascota();
         clinica.registrarMascota(mascota);
-        System.out.println("✓ " + mascota);
+        System.out.println("-" + mascota);
 
         veterinarioSeleccionado = seleccionarVeterinario();
         String idCita = seleccionarCita();
 
         clinica.asignarCita(idCita, veterinarioSeleccionado, mascota, cliente);
-        System.out.println("✓ Cita agendada con éxito:\n");
+        System.out.println(" Cita agendada con éxito:\n");
         clinica.showCitasAgendadas();
 
         procesarOpcionesCliente(cliente, mascota, idCita);
