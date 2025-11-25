@@ -11,6 +11,7 @@ public class Cita {
     private Cliente cliente = null;
     private Estado estado = Estado.DISPONIBLE;
     private String notas = "";
+    private double costo = 0.0;
 
     public Cita(String id,String hora, String dia) {
         this.id = id;
@@ -33,6 +34,10 @@ public class Cita {
         }
     }
 
+    public void asignarCosto(double costo) {
+        this.costo = costo;
+    }
+
     public void confirmarCita() {
         this.estado = Estado.CONFIRMADA;
     }
@@ -47,6 +52,7 @@ public class Cita {
         this.cliente = null;
         this.veterinario = null;
         this.mascota = null;
+        this.costo = 0.0;
     }
 
     public Cliente getCliente() {
@@ -69,18 +75,30 @@ public class Cita {
         return notas;
     }
 
+    public double getCosto() {
+        return costo;
+    }
+
     @Override
     public String toString() {
-        return "Cita{" +
-                "id='" + id + '\'' +
-                ", hora='" + hora + '\'' +
-                ", día='" + dia + '\'' +
-                ", estado=" + estado +
-                ", veterinario=" + (veterinario != null ? veterinario.getNombre() : "N/A") +
-                ", mascota=" + (mascota != null ? mascota.getNombre() : "N/A") +
-                ", cliente=" + (cliente != null ? cliente.getNombre() : "N/A") +
-                ", notas='" + notas + '\'' +
-                '}';
+        return """
+                    Cita ID        : %s
+                    Hora y Día     : %s
+                    Veterinario    : %s
+                    Mascota        : %s
+                    Cliente        : %s
+                    Estado         : %s
+                    Costo          : $%.2f
+                    Notas          : %s
+                """. formatted(
+                getId(),
+                getHoraDia(),
+                (veterinario != null) ? veterinario.getNombre() : "No asignado",
+                (mascota != null) ? mascota.getNombre() : "No asignada",
+                (cliente != null) ? cliente.getNombre() : "No asignado",
+                getEstado(),
+                getCosto(),
+                getNotas());
     }
 
     

@@ -27,19 +27,21 @@ public class Persona {
         return email;
     }
 
-    @Override
-    public String toString() {
-        return """
-                Información general:
-                    Nombre   : %s
-                    Apellido : %s
-                    Teléfono : %s
-                    Email    : %s
-                """.formatted(
+    public String getInfoPersonal() {
+        return String.format(
+                "    Nombre   : %s\n    Apellido : %s\n    Teléfono : %s\n    Email    : %s",
                 getNombre(),
                 getApellido(),
                 getTelefono(),
                 getEmail());
+    }
+
+    @Override
+    public String toString() {
+        return """
+                Información general:
+                %s
+                """.formatted(getInfoPersonal());
     }
 
 }

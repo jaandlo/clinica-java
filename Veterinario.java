@@ -16,5 +16,14 @@ public class Veterinario extends Persona {
     public String getEspecialidad() {
         return especialidad;
     }
-    
+
+    @Override
+    public String toString() {
+        return """
+                Información del Veterinario:
+                    Licencia     : %s
+                    Especialidad : %s
+                %s
+                """.formatted(getLicencia(), getEspecialidad(), super.getInfoPersonal());
+    }
 }
